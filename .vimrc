@@ -39,6 +39,8 @@ Plugin 'sillybun/vim-repl'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'justinmk/vim-syntax-extra'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
