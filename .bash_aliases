@@ -32,3 +32,7 @@ alias viom='vim'
 # Python modules
 alias pdb='python3 -m pdb'
 alias pycodestyle='python3 -m pycodestyle'
+
+
+# Jupyter notebook configuration for WSL
+alias jupyter-notebook="~/.local/bin/jupyter-lab --no-browser"
