@@ -124,4 +124,4 @@ fi
 
 # PATH editions
 
-export PATH=/home/sonder/.local/bin:$PATH
+export PATH=/home/swaves/.local/bin:/home/swaves/bin/bash:$PATH

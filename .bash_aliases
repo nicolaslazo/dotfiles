@@ -22,7 +22,6 @@ alias pytohn3='python3'
 
 # Shortcuts
 alias clr='clear'
-alias duck='elinks duck.com'
 alias l='ls'
 alias pg='prolog'
 alias pylint='pylint3'
@@ -36,3 +35,4 @@ alias pycodestyle='python3 -m pycodestyle'
 
 # Jupyter notebook configuration for WSL
 alias jupyter-notebook="~/.local/bin/jupyter-lab --no-browser"
+alias jupyterlab="~/.local/bin/jupyter-lab --no-browser"
