@@ -1,0 +1,6 @@
+[user]
+	email = nlazo@est.frba.utn.edu.ar
+	name = Nicolas Lazo
+
+[alias]
+	pretty-log = log --graph --abbrev-commit --decorate --date=relative --all
