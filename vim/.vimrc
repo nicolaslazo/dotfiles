@@ -19,27 +19,6 @@ let g:gutentags_cache_dir = $HOME .'/.vim/gutentags'
 " ale linter configuration
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['pylint', 'bandit', 'reorder-python-imports'] }
 
-" omnisharp configuration
-filetype indent plugin on
-
-" let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_timeout = 5
-let g:omnicomplete_fetch_full_documentation = 1
-set previewheight=5
-let g:OmniSharp_highlighting = 2
-
-augroup omnisharp_commands
-	autocmd!
-
-	autocmd CursorHold *.cs OmnisharpTypeLookup
-	
-	autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
-	autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
-augroup END
-
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -61,7 +40,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'christoomey/vim-tmux-navigator'
-Bundle 'OmniSharp/omnisharp-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

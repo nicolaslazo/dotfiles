@@ -1,8 +1,0 @@
-pane	0	0	:bash	1	:*	0	:/home/swaves	1	bash	:
-pane	gs	0	:vim	1	:*	0	:/home/swaves	0	bash	:
-pane	gs	0	:vim	1	:*	1	:/home/swaves	1	aws	:aws s3 cp s3://breaches-uncompressed/myspace/MySpace/MySpace/Myspace.com.txt -
-less
-pane	gs	0	:vim	1	:*	2	:/home/swaves	0	vim	:vim bin/python/groupsense/top100.txt
-window	0	0	1	:*	c03d,174x54,0,0,0
-window	gs	0	1	:*	87b1,174x54,0,0{145x54,0,0[145x8,0,0,1,145x45,0,9,5],28x54,146,0,2}
-state	gs	

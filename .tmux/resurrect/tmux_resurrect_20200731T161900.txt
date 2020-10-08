@@ -1,8 +1,0 @@
-pane	0	0	:bash	1	:*	0	:/home/swaves	1	bash	:
-pane	gs	0	:vim	1	:*	0	:/home/swaves	1	bash	:
-pane	gs	0	:vim	1	:*	1	:/home/swaves	0	vim	:vim bin/python/groupsense/top100.txt
-pane	whatsapp	0	:bash	1	:*	0	:/home/swaves/repos	1	bash	:
-window	0	0	1	:*	c03d,174x54,0,0,0
-window	gs	0	1	:*	97fa,174x54,0,0{145x54,0,0,1,28x54,146,0,2}
-window	whatsapp	0	1	:*	c043,174x54,0,0,6
-state	whatsapp	

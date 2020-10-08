@@ -1,4 +1,0 @@
-pane	gs	0	:vim	1	:*	0	:/home/swaves	0	bash	:
-pane	gs	0	:vim	1	:*	1	:/home/swaves	1	vim	:vim bin/python/groupsense/top100.txt
-window	gs	0	1	:*	20e8,174x54,0,0{146x54,0,0,0,27x54,147,0,1}
-state	gs	

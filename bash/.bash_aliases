@@ -19,20 +19,15 @@ alias pytohn3='python3'
 alias pytohn='python3'
 alias pytohn3='python3'
 
+alias viom='vim'
 
 # Shortcuts
 alias clr='clear'
 alias l='ls'
 alias pg='prolog'
 alias pylint='pylint3'
-alias viom='vim'
 
 
 # Python modules
 alias pdb='python3 -m pdb'
 alias pycodestyle='python3 -m pycodestyle'
-
-
-# Jupyter notebook configuration for WSL
-alias jupyter-notebook="~/.local/bin/jupyter-lab --no-browser"
-alias jupyterlab="~/.local/bin/jupyter-lab --no-browser"
