@@ -25,3 +25,7 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# make international keyboard behave more like Microsoft's
+export GTK_IM_MODULE="uim"
+export QT_IM_MODULE="uim"
