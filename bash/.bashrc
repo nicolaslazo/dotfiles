@@ -118,3 +118,6 @@ fi
 
 # PATH additions
 export PATH="/home/swaves/.local/bin:$PATH"
+
+# implement wallpaper theme
+(cat ~/.cache/wal/sequences &)
