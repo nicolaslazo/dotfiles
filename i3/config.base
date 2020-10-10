@@ -10,13 +10,23 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $coloract "#7d0f5a"
-set $colorin "#550a3e"
-set_from_resource $color15 i3wm.color15 "#f4caca"
-set_from_resource $split i3wm.color10 "#65a175"
-set_from_resource $coloru i3wm.color2 "#58725f"
-set_from_resource $color0 i3wm.color0 "#1f1f1f"
-set_from_resource $color8 i3wm.color8 "#383838"
+set $coloract "{active}"
+set $colorin "{inactive}"
+set_from_resource $color15 i3wm.color15 "{color15}"
+set_from_resource $split i3wm.color10 "{color10}"
+set_from_resource $coloru i3wm.color2 "{color2}"
+set_from_resource $color0 i3wm.color0 "{color0}"
+set_from_resource $color8 i3wm.color8 "{color8}"
+
+######### COLORS ##########
+#
+# class                 border    backgr    text    indicator child_border
+client.focused          $coloract $coloract $color15 $split  $coloract
+client.focused_inactive $coloract $coloract $color15 $split  $colorin
+client.unfocused        $colorin  $colorin  $color15 $split  $colorin
+client.urgent           $coloru   $coloru   $color15 $coloru $coloru
+client.placeholder      $color0   $color8   $color15 $color0 $color8
+client.background       $color0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -64,12 +74,6 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -204,11 +208,13 @@ bindsym $mod+e exec --no-startup-id nautilus
 for_window [class="^.*"] border pixel 2
 gaps inner 15
 gaps outer 18
-set $mode_gaps Toggle gaps: (1) on (2) off
+set $mode_gaps Toggle gaps: (1) on (2) off (3) inner only (4) outer only
 bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym 1 mode "default", gaps inner all set 15, gaps outer all set 18
-    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
+    bindsym 2 mode "default", gaps inner all set 1,  gaps outer all set 1
+    bindsym 3 mode "default", gaps inner all set 15, gaps outer all set 1
+    bindsym 4 mode "default", gaps inner all set 1,  gaps outer all set 18
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -219,3 +225,9 @@ exec --no-startup-id $HOME/.config/wpg/wp_init.sh
 # capture screenshots
 bindsym $mod+Shift+s exec scrot -fs '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 bindsym Print exec scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+# enable touchpad tapping
+exec xinput set-prop 14 "libinput Tapping Enabled" 1
+
+# lock screen
+bindsym $mod+l exec betterlockscreen -l dimblur --off 10
