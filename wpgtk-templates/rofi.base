@@ -1,0 +1,21 @@
+configuration {
+	modi:                           "window,run,ssh";
+	width:                          50;
+	lines:                          15;
+	columns:                        1;
+	font:                           "mono 12";
+	color-normal:                   "{color0}, {color15}, {color0}, {active}, {color15}";
+	color-urgent:                   "{color0}, #d6b48d, #22231D, #d6b48d, {color15}";
+	color-active:                   "{color0}, {color14}, {color0}, {color14}, {color0}";
+	color-window:                   "{color0}, {active}, {inactive}";
+	bw:                             1;
+	location:                       0;
+	padding:                        5;
+	yoffset:                        0;
+	xoffset:                        0;
+	fixed-num-lines:                true;
+	parse-hosts:                    true;
+	matching:                       "fuzzy";
+	separator-style:                "solid";
+	scrollbar-width:                0;
+}

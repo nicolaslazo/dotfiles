@@ -194,6 +194,9 @@ bar {
         status_command i3status
 }
 
+# turn off screen with dedicated acpi key
+bindsym XF86ScreenSaver exec xset dpms force off
+
 # brightness control
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl s 5%-
 bindsym XF86MonBrightnessUp   exec --no-startup-id sudo brightnessctl s +5%
