@@ -1,3 +1,4 @@
+set $alt Mod1
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -115,9 +116,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# PATH additions
-export PATH="/home/swaves/.local/bin:$PATH"
 
 # implement wallpaper theme
 (cat ~/.cache/wal/sequences &)
