@@ -1,4 +1,3 @@
-
 "
 "	 _    ___                       
 "	| |  / (_)___ ___     __________
@@ -17,7 +16,10 @@ syntax on
 let g:gutentags_cache_dir = $HOME .'/.vim/gutentags'
 
 " ale linter configuration
-let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['pylint', 'bandit', 'reorder-python-imports'] }
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['pylint', 'bandit', 'reorder-python-imports', 'pyflakes', 'pycodestyle'] }
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,8 +27,10 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" prevent nerdtree and fzf from taking over too much screen space
+let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
 
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'justinmk/vim-sneak'
@@ -40,6 +44,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/fzf.vim'
+Plugin 'camspiers/animate.vim'
+Plugin 'camspiers/lens.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,3 +62,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" enable fzf
+source /usr/share/doc/fzf/examples/fzf.vim
