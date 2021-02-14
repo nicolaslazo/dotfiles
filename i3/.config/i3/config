@@ -10,13 +10,13 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $coloract "#191129"
-set $colorin "#040306"
-set_from_resource $color15 i3wm.color15 "#ffffc5"
-set_from_resource $split i3wm.color10 "#75bf52"
-set_from_resource $coloru i3wm.color2 "#5e894a"
-set_from_resource $color0 i3wm.color0 "#040306"
-set_from_resource $color8 i3wm.color8 "#191129"
+set $coloract "#aca269"
+set $colorin "#0C0C0C"
+set_from_resource $color15 i3wm.color15 "#f6e896"
+set_from_resource $split i3wm.color10 "#B42D59"
+set_from_resource $coloru i3wm.color2 "#B42D59"
+set_from_resource $color0 i3wm.color0 "#0C0C0C"
+set_from_resource $color8 i3wm.color8 "#aca269"
 
 ######### COLORS ##########
 #
@@ -243,4 +243,4 @@ exec xinput set-prop 14 "libinput Tapping Enabled" 1
 exec xinput set-prop 15 "libinput Tapping Enabled" 1
 
 # lock screen
-bindsym $mod+l exec betterlockscreen -l dimblur --off 5 --redraw-thread
+bindsym $mod+l exec betterlockscreen -l dimblur --off 10 --redraw-thread

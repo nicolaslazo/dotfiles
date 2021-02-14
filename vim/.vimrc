@@ -11,11 +11,18 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set backspace=2
 syntax on
+set ts=4 sw=4
+set encoding=utf-8
+set hlsearch
+set ignorecase
+set smartcase
+hi MatchParen cterm=underline,bold ctermbg=none ctermfg=none
 
 " gutentags cache dir
 let g:gutentags_cache_dir = $HOME .'/.vim/gutentags'
 
 " ale linter configuration
+let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['pylint', 'bandit', 'reorder-python-imports', 'pyflakes', 'pycodestyle'] }
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '●'
@@ -26,9 +33,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
-" prevent nerdtree and fzf from taking over too much screen space
-let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -45,8 +49,6 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
-Plugin 'camspiers/animate.vim'
-Plugin 'camspiers/lens.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

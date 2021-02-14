@@ -126,3 +126,6 @@ export FZF_DEFAULT_OPTS="--border"
 
 # implement wallpaper theme
 cat ~/.config/wpg/sequences
+
+# added by travis gem
+[ ! -s /home/swaves/.travis/travis.sh ] || source /home/swaves/.travis/travis.sh

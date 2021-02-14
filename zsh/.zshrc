@@ -125,9 +125,11 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
 alias jupyterlab='jupyter-lab'
+alias myip='curl checkip.amazonaws.com'
+alias pip='pip3'
+alias python='python3'
+alias zshconfig="vim ~/.zshrc"
 
 # implement wallpaper theme
 cat ~/.config/wpg/sequences
@@ -153,3 +155,14 @@ antigen apply
 # Set zsh prompt
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+
+# fzf functionality
+export FZF_DEFAULT_COMMAND="fdfind -L -H . $HOME /mnt/Windows/Users/nico-/"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fdfind -t d -H . $HOME /mnt/Windows/Users/nico-/"
+export FZF_DEFAULT_OPTS="--border"
+
+# added by travis gem
+[ ! -s /home/swaves/.travis/travis.sh ] || source /home/swaves/.travis/travis.sh
+
+[ -e TODO ] && echo TODO: && cat TODO
