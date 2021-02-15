@@ -16,7 +16,42 @@ set encoding=utf-8
 set hlsearch
 set ignorecase
 set smartcase
+set number
 hi MatchParen cterm=underline,bold ctermbg=none ctermfg=none
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+" nice status line
+set laststatus=2
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%#CursorIM#     " colour
+set statusline+=%R                        " readonly flag
+set statusline+=%#Cursor#               " colour
+set statusline+=%#CursorLine#     " colour
+set statusline+=%{StatuslineGit()}
+set statusline+=\ %t\                   " short file name
+set statusline+=%M                        " modified [+] flag
+set statusline+=%=                          " right align
+set statusline+=%{gutentags#statusline()}\ 
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\ 
+set statusline+=%#CursorLine#   " colour
+set statusline+=%#CursorIM#     " colour
+set statusline+=\ %3l:%-2c\         " line + column
+set statusline+=%#Cursor#       " colour
+set statusline+=\ %3p%%\                " percentage
 
 " gutentags cache dir
 let g:gutentags_cache_dir = $HOME .'/.vim/gutentags'
@@ -49,6 +84,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,3 +103,6 @@ filetype plugin indent on    " required
 
 " enable fzf
 source /usr/share/doc/fzf/examples/fzf.vim
+
+" open tags explorer
+nmap <F8> :TagbarToggle<CR>
