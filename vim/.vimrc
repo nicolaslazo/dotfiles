@@ -19,6 +19,11 @@ set smartcase
 set number
 hi MatchParen cterm=underline,bold ctermbg=none ctermfg=none
 
+" python code folding
+hi Folded ctermbg=none ctermfg=none
+nnoremap <space> za
+vnoremap <space> zf
+
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
@@ -63,6 +68,13 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 
+" youcompleteme configuration
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers =  { 'c,cpp,objc': [ 're!\w{3}', '_' ], }
+let g:ycm_clangd_args=['--header-insertion=never']
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -71,7 +83,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'justinmk/vim-sneak'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ludovicchabant/vim-gutentags'
@@ -85,6 +97,7 @@ Plugin 'justinmk/vim-syntax-extra'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'tmhedberg/SimpylFold'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -92,6 +92,7 @@ setopt HIST_REDUCE_BLANKS
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	colored-man-pages
+    docker
 	fzf
 	git
 	pip
@@ -130,6 +131,7 @@ alias jupyterlab='jupyter-lab'
 alias myip='curl checkip.amazonaws.com'
 alias pip='pip3'
 alias python='python3'
+alias xdg='xdg-open'
 alias zshconfig="vim ~/.zshrc"
 
 # implement wallpaper theme
