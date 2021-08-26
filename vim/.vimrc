@@ -16,8 +16,14 @@ set encoding=utf-8
 set hlsearch
 set ignorecase
 set smartcase
-set number
+set number relativenumber
 hi MatchParen cterm=underline,bold ctermbg=none ctermfg=none
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " python code folding
 hi Folded ctermbg=none ctermfg=none
@@ -67,6 +73,8 @@ let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
+let g:ale_python_flake8_options = '--max-line-length=132'
+let g:ale_python_pylint_options = '--max-line-length=132'
 
 " youcompleteme configuration
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -74,6 +82,17 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers =  { 'c,cpp,objc': [ 're!\w{3}', '_' ], }
 let g:ycm_clangd_args=['--header-insertion=never']
+
+" Ultisnips trigger configuration. You need to change this to something other than <tab>
+" if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical""
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -98,6 +117,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'junegunn/fzf.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

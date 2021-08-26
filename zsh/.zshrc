@@ -33,7 +33,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -91,6 +91,7 @@ setopt HIST_REDUCE_BLANKS
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	aws
 	colored-man-pages
     docker
 	fzf
@@ -126,11 +127,12 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+alias emacs='emacsclient -nw -c'
 alias gpp='g++'
 alias jupyterlab='jupyter-lab'
 alias myip='curl checkip.amazonaws.com'
 alias pip='pip3'
-alias python='python3'
+alias python='bpython'
 alias xdg='xdg-open'
 alias zshconfig="vim ~/.zshrc"
 
@@ -165,7 +167,20 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fdfind -t d -H . $HOME /mnt/Windows/Users/nico-/"
 export FZF_DEFAULT_OPTS="--border"
 
-# added by travis gem
-[ ! -s /home/swaves/.travis/travis.sh ] || source /home/swaves/.travis/travis.sh
+# Python env variables
+export PYTHONBREAKPOINT="pudb.set_trace"
+
+# Emacs vterm integration
+vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
 
 [ -e TODO ] && echo TODO: && cat TODO
